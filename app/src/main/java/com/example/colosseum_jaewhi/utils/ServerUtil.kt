@@ -64,9 +64,9 @@ class ServerUtil {
                     val bodyString = response.body!!.string()
 
 //                  bodyString에는 한글이 깨져있다. => JSONObject로 변환하면, 한글 정상 처리.
-                    val jsonObj = JSONObject(bodyString).toString()
+                    val jsonObj = JSONObject(bodyString)
 
-                    Log.d("응답본문",jsonObj)
+                    Log.d("응답본문",jsonObj.toString())
 
 //                    handler 변수가 null이 아니라, (실체가 있다면)
 //                    그 내부에 적힌 내용 실행.
