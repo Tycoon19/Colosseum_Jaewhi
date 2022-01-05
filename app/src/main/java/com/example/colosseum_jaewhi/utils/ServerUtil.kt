@@ -6,6 +6,11 @@ import org.json.JSONObject
 import java.io.IOException
 
 class ServerUtil {
+//  ServerUtil에서 다시 Activity로 역으로 돌아가게 하는 것이 Interface의 개념.
+    interface JsonResponseHandler{
+        fun onResponse(jsonObj : JSONObject)
+
+    }
 
 //   어떤 내용? => 서버 연결 전담.
 
@@ -16,7 +21,7 @@ class ServerUtil {
         val BASE_URL = "http://54.180.52.26"
 
 //    로그인 하는 기능 -> 함수를 만들어라
-        fun postRequestLogin(email : String, pw : String){
+        fun postRequestLogin(email : String, pw : String, handler : JsonResponseHandler?){
 
 //            입력받은 email, pw 서버 전달 => 로그인 기능 POST /user 로 전달. => 요청(request) 실행.
 //            직접 짜기 어려우니 라이브러리(okHttp) 활용해서 짜보자.
@@ -62,6 +67,12 @@ class ServerUtil {
                     val jsonObj = JSONObject(bodyString).toString()
 
                     Log.d("응답본문",jsonObj)
+
+//                    handler 변수가 null이 아니라, (실체가 있다면)
+//                    그 내부에 적힌 내용 실행.
+
+                    handler?.onResponse(jsonObj)
+
                 }
 
 
