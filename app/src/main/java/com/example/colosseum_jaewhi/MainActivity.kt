@@ -2,6 +2,7 @@ package com.example.colosseum_jaewhi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.colosseum_jaewhi.utils.ServerUtil
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
@@ -22,7 +23,7 @@ class MainActivity : BaseActivity() {
 
 //          서버에 실제 회원이 맞는지 확인 요청 (Request)
 //          밑에다 줄줄이 적어도 되는데 너무 길어지기 때문에 코드 정리용 ServerUtil.kt에 작성하고 불러오
-
+            ServerUtil.postRequestLogin(inputEmail,inputPw)
         }
 
     }
