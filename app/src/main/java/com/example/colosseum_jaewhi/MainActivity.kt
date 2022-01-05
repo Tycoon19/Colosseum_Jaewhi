@@ -21,7 +21,7 @@ class MainActivity : BaseActivity() {
             val inputPw = passwordEdt.text.toString()
 
 //          서버에 실제 회원이 맞는지 확인 요청 (Request)
-
+//          밑에다 줄줄이 적어도 되는데 너무 길어지기 때문에 코드 정리용 ServerUtil.kt에 작성하고 불러오
 
         }
 
