@@ -2,6 +2,8 @@ package com.example.colosseum_jaewhi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import com.example.colosseum_jaewhi.utils.ServerUtil
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
@@ -32,6 +34,21 @@ class MainActivity : BaseActivity() {
 //                    => 이 내부를 파싱(분석)해서, 상황에 따른 대응.
 //                    => ex. 로그인 실패시, 그 이유를 토스트로 띄운다던지.
 
+                    val code = jsonObj.getInt("code")
+
+                    if (code == 200){
+//                        로그인 성공
+                    }
+                    else{
+//                        로그인 실패
+                        val message = jsonObj.getString("message")
+//                        여기까지하고 돌리면 앱이 죽는다. 왜냐면 서버통신은 백그라운드 작업인데 Toast로 먼저 띄워버리려 하니 순서가 꼬이기 때문.
+//                        그래서 Ui, 화면 전담하는 친구가 담당해달라고 처리하면 만사ok.
+                        runOnUiThread {
+                            Toast.makeText(mContext,message,Toast.LENGTH_SHORT).show()
+                        }
+
+                    }
                 }
 
             })
