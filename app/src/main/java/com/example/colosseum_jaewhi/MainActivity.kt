@@ -1,5 +1,6 @@
 package com.example.colosseum_jaewhi
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -18,6 +19,13 @@ class MainActivity : BaseActivity() {
 
 }
     override fun setupEvents() {
+
+        signupBtn.setOnClickListener {
+
+            val myIntent = Intent(mContext,SignUpActivity::class.java)
+            startActivity(myIntent)
+
+        }
 
         loginBtn.setOnClickListener {
 //          입력한 이메일, 비밀번호가 뭔지 변수에 저장.
@@ -43,7 +51,7 @@ class MainActivity : BaseActivity() {
 //                        로그인 실패
                         val message = jsonObj.getString("message")
 //                        여기까지하고 돌리면 앱이 죽는다. 왜냐면 서버통신은 백그라운드 작업인데 Toast로 먼저 띄워버리려 하니 순서가 꼬이기 때문.
-//                        그래서 Ui, 화면 전담하는 친구가 담당해달라고 처리하면 만사ok.
+//                        그래서 Ui, 화면 전담하는 친구(runOnUiThread)가 담당해달라고 처리하면 만사ok.
                         runOnUiThread {
                             Toast.makeText(mContext,message,Toast.LENGTH_SHORT).show()
                         }

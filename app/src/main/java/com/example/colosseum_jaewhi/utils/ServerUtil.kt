@@ -6,6 +6,7 @@ import org.json.JSONObject
 import java.io.IOException
 
 class ServerUtil {
+//  Activity에서 응답내용에 따른 처리를 해줘야함. ServerUtil에서는 응답결과를 화면단에게 전달해줘야 함.
 //  ServerUtil에서 다시 Activity로 역으로 돌아가게 하는 것이 Interface의 개념.
     interface JsonResponseHandler{
         fun onResponse(jsonObj : JSONObject)
@@ -50,6 +51,7 @@ class ServerUtil {
 //          클라이언로써의 동작 : Request 요청 실행. = OkHttp 라이브러리 지원
 
         val client = OkHttpClient()
+
 //          새로 호출 좀 해줘~ => 실제로 서버에 요청 날리기. => 갔다 와서는 뭘 할건지?{enqueue에 관한 것.(SharedPreference처럼 가이드북 생성 메타 따라가기)}
             client.newCall(request).enqueue(object : Callback{
                 override fun onFailure(call: Call, e: IOException) {

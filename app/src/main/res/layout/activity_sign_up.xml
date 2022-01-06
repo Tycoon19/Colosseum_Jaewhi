@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="15dp"
-    tools:context=".MainActivity">
+    tools:context=".SignUpActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,8 +23,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="비밀번호"
-        android:layout_marginTop="15dp"/>
+        android:text="비밀번호"/>
 
     <EditText
         android:id="@+id/passwordEdt"
@@ -33,19 +32,26 @@
         android:hint="비밀번호 입력"
         android:inputType="textPassword"/>
 
-    <Button
-        android:id="@+id/loginBtn"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="닉네임"/>
+
+    <EditText
+        android:id="@+id/nicknameEdt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="로그인"/>
+        android:hint="닉네임 입력(한글 가능)"
+        android:singleLine="true"/>
 
     <Button
         android:id="@+id/signupBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="회원가"/>
+        android:text="회원가입"/>
+
+
+
 
 
 </LinearLayout>
