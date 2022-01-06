@@ -7,6 +7,10 @@ import android.util.Log
 import android.widget.Toast
 import com.example.colosseum_jaewhi.utils.ServerUtil
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.emailEdt
+import kotlinx.android.synthetic.main.activity_main.passwordEdt
+import kotlinx.android.synthetic.main.activity_main.signupBtn
+import kotlinx.android.synthetic.main.activity_sign_up.*
 import org.json.JSONObject
 
 class MainActivity : BaseActivity() {
