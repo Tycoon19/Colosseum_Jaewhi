@@ -88,7 +88,7 @@ class ServerUtil {
 
 //    회원가입 하는 기능
 
-        fun postRequestSignUp(email : String, pw : String, nick : String, handler : JsonResponseHandler?){
+        fun putRequestSignUp(email : String, pw : String, nick : String, handler : JsonResponseHandler?){
 
 //            입력받은 email, pw, nick 서버 전달 => 회원가입 기능 PUT /user 로 전달. => 요청(request) 실행.
 //            직접 짜기 어려우니 라이브러리(okHttp) 활용해서 짜보자.

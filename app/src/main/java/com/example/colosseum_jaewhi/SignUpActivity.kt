@@ -26,7 +26,7 @@ class SignUpActivity : BaseActivity() {
             val inputPw = signupPasswordEdt.text.toString()
             val inputNickname = signupNicknameEdt.text.toString()
 
-            ServerUtil.postRequestSignUp(inputEmail,inputPw,inputNickname, object : ServerUtil.JsonResponseHandler{
+            ServerUtil.putRequestSignUp(inputEmail,inputPw,inputNickname, object : ServerUtil.JsonResponseHandler{
                 override fun onResponse(jsonObj: JSONObject) {
 
                     val code = jsonObj.getInt("code")
