@@ -3,6 +3,7 @@ package com.example.colosseum_jaewhi
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import com.example.colosseum_jaewhi.utils.ContextUtil
 import com.example.colosseum_jaewhi.utils.ServerUtil
 import kotlinx.android.synthetic.main.activity_login.*
 import org.json.JSONObject
@@ -44,6 +45,13 @@ class LoginActivity : BaseActivity() {
 
                     if (code == 200){
 //                        로그인 성공
+
+//                        서버가 주는 토큰을 추출해서, 저장
+                        val dataObj = jsonObj.getJSONObject("data")
+                        val token = dataObj.getString("token")
+
+                        ContextUtil.setToken(mContext, token)
+
                         val myIntent = Intent(mContext,MainActivity::class.java)
                         startActivity(myIntent)
 
