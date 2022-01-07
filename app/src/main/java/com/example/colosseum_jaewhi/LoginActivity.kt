@@ -49,7 +49,7 @@ class LoginActivity : BaseActivity() {
 //                        서버가 주는 토큰을 추출해서, 저장
                         val dataObj = jsonObj.getJSONObject("data")
                         val token = dataObj.getString("token")
-
+//                        로그인 성공시 -> 서버가 내려주는 토큰값 기기에 저장.
                         ContextUtil.setToken(mContext, token)
 
                         val myIntent = Intent(mContext,MainActivity::class.java)
