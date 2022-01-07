@@ -4,9 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.colosseum_jaewhi.utils.ServerUtil
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.emailEdt
-import kotlinx.android.synthetic.main.activity_main.signupBtn
 import kotlinx.android.synthetic.main.activity_sign_up.*
 import org.json.JSONObject
 
@@ -38,6 +35,7 @@ class SignUpActivity : BaseActivity() {
                         val dataObj = jsonObj.getJSONObject("data")
                         val userObj = dataObj.getJSONObject("user")
                         val nickName = userObj.getString("nick_name")
+
                         runOnUiThread {
                             Toast.makeText(mContext,"${nickName}님, 환영합니다!",Toast.LENGTH_SHORT).show()
                             finish()

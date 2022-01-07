@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.colosseum_jaewhi.utils.ServerUtil
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_sign_up.*
-import kotlinx.android.synthetic.main.activity_sign_up.signupBtn
 import org.json.JSONObject
 
 class LoginActivity : BaseActivity() {
@@ -46,6 +44,11 @@ class LoginActivity : BaseActivity() {
 
                     if (code == 200){
 //                        로그인 성공
+                        val myIntent = Intent(mContext,MainActivity::class.java
+                        startActivity(myIntent)
+
+                        finish()
+
                     }
                     else{
 //                        로그인 실패
