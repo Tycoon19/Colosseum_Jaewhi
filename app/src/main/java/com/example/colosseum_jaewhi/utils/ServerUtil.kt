@@ -168,6 +168,35 @@ class ServerUtil {
 
             Log.d("완성된 URL", urlString)
 
+            val request = Request.Builder()
+                .url(urlString)
+//              put,post와 다르게 get으로 뭘 안들고가도 된다. url에 다 담겨있기 때문에!!!!
+                .get()
+                .build()
+
+            val client = OkHttpClient()
+
+//          request에 들고 서버로 가줘!라는 call을 해준다.
+            client.newCall(request).enqueue(object : Callback{
+                override fun onFailure(call: Call, e: IOException) {
+
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+//                  여기까지 하면 ㅈㄴ 이상한 로그캣 찍힘.
+                    val bodyString = response.body!!.string()
+
+                    val jsonObj = JSONObject(bodyString)
+                    Log.d("응답본문",jsonObj.toString())
+
+                    handler?.onResponse(jsonObj)
+
+
+                }
+
+
+            })
+
 
         }
 

@@ -16,7 +16,7 @@ class SignUpActivity : BaseActivity() {
         setValues()
 }
     override fun setupEvents() {
-
+//      중복검사 버튼 Click
         emailCheckBtn.setOnClickListener {
 //            입력한 이메일? => 중복 검사.
             val inputEmail = signupEmailEdt.text.toString()
@@ -24,6 +24,20 @@ class SignUpActivity : BaseActivity() {
 //            서버에 중복 여부 확인. API 호출
             ServerUtil.getRequestDuplCheck("EMAIL",inputEmail,object : ServerUtil.JsonResponseHandler{
                 override fun onResponse(jsonObj: JSONObject) {
+
+                    val code = jsonObj.getInt("code")
+
+                    runOnUiThread {
+
+                        if (code == 200){
+                            Toast.makeText(mContext, "사용해도 좋습니다.", Toast.LENGTH_SHORT).show()
+                        }
+                        else{
+                            val message = jsonObj.getString("message")
+                            Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
+                        }
+
+                    }
 
                 }
 
@@ -33,7 +47,7 @@ class SignUpActivity : BaseActivity() {
 
 
         }
-
+//      회원가입 버튼 Click
         signupBtn.setOnClickListener {
 
             val inputEmail = signupEmailEdt.text.toString()
