@@ -201,6 +201,7 @@ class ServerUtil {
 
         }
 
+//    진행중인 주제 목록 확인 기능 불러오는 함수
 
         fun getRequestMainInfo(context : Context, handler: JsonResponseHandler?){
 
