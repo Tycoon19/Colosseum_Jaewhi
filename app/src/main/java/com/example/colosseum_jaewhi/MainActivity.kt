@@ -11,7 +11,7 @@ import org.json.JSONObject
 
 class MainActivity : BaseActivity() {
 
-    val mTopicList = ArrayList<Topic>() // ArrayList를 미리 Topic을 담겠다라고 구체화 해줌.
+    val mTopicList = ArrayList<Topic>() // 미리 ArrayList의 형태로 Topic을 담겠다라고 객체화해서 저장해줌.
 
     lateinit var mTopicAdapter : TopicAdapter
 
