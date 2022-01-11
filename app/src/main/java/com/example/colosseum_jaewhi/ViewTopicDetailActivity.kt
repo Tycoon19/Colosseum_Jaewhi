@@ -29,6 +29,9 @@ class ViewTopicDetailActivity : BaseActivity() {
                 override fun onResponse(jsonObj: JSONObject) {
 
 //                    서버의 응답을 대응해서 UI에 표현하는 부분ㅋ.
+//                    => 서버에서 최신 투표 현황을 받아서, 다시 UI에 반영.
+//                    만들어 둔 함수를 재활용하자.
+                    getTopicDetailFromServer()
 
                 }
 
