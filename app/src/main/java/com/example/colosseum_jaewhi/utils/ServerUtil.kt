@@ -260,7 +260,7 @@ class ServerUtil {
 //        /몇번 등을 표현하기 위한 기능으로 addEncodedPathSegment가 있다. 여긴 String만 가능하므로 끝에 String으로 가공해주자.
         urlBuilder.addEncodedPathSegment(topicId.toString())
 //            쿼리에다가 처리하기 좋은 가공된 파라미터를 넣어주는 기능.
-//        urlBuilder.addEncodedQueryParameter("type", type)
+        urlBuilder.addEncodedQueryParameter("order_type", "NEW")
 //        urlBuilder.addEncodedQueryParameter("value", value)
 
         val urlString = urlBuilder.build().toString()
