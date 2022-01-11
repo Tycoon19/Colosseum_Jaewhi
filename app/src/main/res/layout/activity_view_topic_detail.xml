@@ -30,6 +30,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/topicTitleTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="토론 주제가 나올 자리"
@@ -39,13 +40,33 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:gravity="center">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="천 진영"
-                    android:textColor="@color/white"/>
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/firstSideTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="천 진영"
+                        android:textSize="16sp"
+                        android:textColor="@color/white"/>
+
+                    <TextView
+                        android:id="@+id/firstSideVoteCountTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="22표"
+                        android:textColor="@color/white"/>
+
+                </LinearLayout>
+
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -55,11 +76,29 @@
                     android:layout_marginRight="10dp"
                    android:textColor="@color/white"/>
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="두 번 진영"
-                    android:textColor="@color/white"/>
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/secondSidetxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:text="두 번째 진영"
+                        android:textColor="@color/white"/>
+
+                    <TextView
+                        android:id="@+id/ssecondSideVoteCountTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10표"
+                        android:textColor="@color/white"/>
+
+                </LinearLayout>
+
 
 
 
