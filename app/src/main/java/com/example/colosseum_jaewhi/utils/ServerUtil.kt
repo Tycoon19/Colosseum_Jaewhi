@@ -300,6 +300,59 @@ class ServerUtil {
 
     }
 
+//    특정 진영에 투표하기
+        fun postRequestVote(context : Context, sideId : Int, handler : JsonResponseHandler?){
+
+        val urlString = "${BASE_URL}/topic_vote"
+
+        val formdata = FormBody.Builder()
+            .add("side_id",sideId.toString())
+            .build()
+
+
+//          어디로 => 어떻게 => 어떤 데이터를 들고 가는지를 모두 종합해둔, Request 변수 생성.
+        val request = Request.Builder()
+//                먼저 어디로 갈꺼니?
+            .url(urlString)
+//                어떤 방식으로 뭘 들고 갈꺼니?
+            .post(formdata)
+            .header("X-Http-Token",ContextUtil.getToken(context))
+            .build()
+
+//          클라이언로써의 동작 : Request 요청 실행. = OkHttp 라이브러리 지원
+        val client = OkHttpClient()
+
+//          새로 호출 좀 해줘~ => 실제로 서버에 요청 날리기. => 갔다 와서는 뭘 할건지?{enqueue에 관한 것.(SharedPreference처럼 가이드북 생성 메타 따라가기)}
+        client.newCall(request).enqueue(object : Callback{
+            override fun onFailure(call: Call, e: IOException) {
+//                  서버 연결 자체를 실패한 경우(서버 마비, 인터넷 단선...)
+//                  로그인에 실패했다는 개념이 아님!!
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+//                  로그인 성공 or 실패 처럼 응답이 돌아온 경우.
+
+//                  본문을 String으로 저장해보자. 원래는 toString()인데 여기선 .string()으로 해줘야 함.
+                val bodyString = response.body!!.string()
+
+//                  bodyString에는 한글이 깨져있다. => JSONObject로 변환하면, 한글 정상 처리.
+                val jsonObj = JSONObject(bodyString)
+
+                Log.d("응답본문",jsonObj.toString())
+
+//                    handler 변수가 null이 아니라, (실체가 있다면)
+//                    그 내부에 적힌 내용 실행.
+
+                handler?.onResponse(jsonObj)
+
+            }
+
+
+        })
+
+//      여기까지 하면 ServerUtil -> API 서버 의 구현은 끝난거임. 아직 Activity에서 이 기능을
+
+    }
 
 }
 
