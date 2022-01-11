@@ -1,5 +1,6 @@
 package com.example.colosseum_jaewhi
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.colosseum_jaewhi.adapters.TopicAdapter
@@ -21,6 +22,16 @@ class MainActivity : BaseActivity() {
         setValues()
 }
     override fun setupEvents() {
+
+        topicListView.setOnItemClickListener { parent, view, position, id ->
+
+            val clickedTopic = mTopicList[position]
+
+            val myIntent = Intent(mContext, ViewTopicDetailActivity::class.java)
+            myIntent.putExtra("topic",clickedTopic)
+            startActivity(myIntent)
+
+        }
 
     }
 

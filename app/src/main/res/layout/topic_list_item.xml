@@ -9,13 +9,13 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:id="@+id/topicImg"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:src="@mipmap/ic_launcher"
             android:scaleType="centerCrop"/>
 
         <ImageView
-            android:id="@+id/topicImg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="#88000000"/>
