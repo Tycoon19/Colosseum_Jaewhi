@@ -40,7 +40,27 @@ class ViewTopicDetailActivity : BaseActivity() {
         ServerUtil.getRequestTopicDetail(mContext, mTopic.id, object : ServerUtil.JsonResponseHandler{
             override fun onResponse(jsonObj: JSONObject) {
 
-                
+                val dataObj = jsonObj.getJSONObject("data")
+                val topicObj = dataObj.getJSONObject("topic")
+
+                val topic = Topic.getTopicDataFromJson(topicObj)
+
+                mTopic = topic // mTopic 실제로 채워주기~!
+
+
+//                최신 득표 현황까지 받아서 mTopic에 저장됨.
+//                UI에 득표 현황 반영.
+
+//                갔다와서 UI상에 변화를 주는거니 runOnUiThread에 넣어준다. 이거 안하면 시간차로 앱 죽음.
+                runOnUiThread {
+                    firstSideTxt.text = mTopic.sides[0].title
+                    firstSideVoteCountTxt.text = "${mTopic.sides[0].voteCount}표"
+
+                    secondSidetxt.text = mTopic.sides[1].title
+                    ssecondSideVoteCountTxt.text = "${mTopic.sides[1].voteCount}표"
+                }
+
+
 
             }
 
