@@ -250,6 +250,56 @@ class ServerUtil {
 
     }
 
+//    원하는 주제 상세현황 확인 가능
+        fun getRequestTopicDetail(context : Context, topicId : Int, handler: JsonResponseHandler?){
+
+//            어디로? + 어떤 데이터? 를 같이 명시하자. type과 value는 query에 담아줘야 하는데 이는 url 주소에 나타내주기 때문에.
+//            URL 적으면 + 파라미터 첨부도 같이. => 보조도구(Builder)
+
+        val urlBuilder = "${BASE_URL}/topic".toHttpUrlOrNull()!!.newBuilder()
+//        /몇번 등을 표현하기 위한 기능으로 addEncodedPathSegment가 있다. 여긴 String만 가능하므로 끝에 String으로 가공해주자.
+        urlBuilder.addEncodedPathSegment(topicId.toString())
+//            쿼리에다가 처리하기 좋은 가공된 파라미터를 넣어주는 기능.
+//        urlBuilder.addEncodedQueryParameter("type", type)
+//        urlBuilder.addEncodedQueryParameter("value", value)
+
+        val urlString = urlBuilder.build().toString()
+
+        Log.d("완성된 URL", urlString)
+
+        val request = Request.Builder()
+            .url(urlString)
+//              put,post와 다르게 get으로 뭘 안들고가도 된다. url에 다 담겨있기 때문에!!!!
+            .get()
+            .header("X-Http-Token", ContextUtil.getToken(context)) // X-Http-Token에 토큰을 header로 저장하자.
+            .build()
+
+        val client = OkHttpClient()
+
+//          request에 들고 서버로 가줘!라는 call을 해준다.
+        client.newCall(request).enqueue(object : Callback{
+            override fun onFailure(call: Call, e: IOException) {
+
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+//                  여기까지 하면 ㅈㄴ 이상한 로그캣 찍힘.
+                val bodyString = response.body!!.string()
+
+                val jsonObj = JSONObject(bodyString)
+                Log.d("응답본문",jsonObj.toString())
+
+                handler?.onResponse(jsonObj)
+
+
+            }
+
+
+        })
+
+
+    }
+
 
 }
 
