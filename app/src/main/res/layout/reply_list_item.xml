@@ -45,6 +45,26 @@
             android:layout_height="wrap_content"
             android:text="의견 내용이 나올 자리"/>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="right">
+
+            <TextView
+                android:id="@+id/likeCountBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="좋아요 n개"/>
+
+            <TextView
+                android:id="@+id/dislikeCountBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="싫어요 n개"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>
