@@ -98,6 +98,7 @@ class ViewTopicDetailActivity : BaseActivity() {
 
     }
 
+//      화면이동을 하면서 동시에 새로고침이 가능하게 하기 위해서 onResume 함수 사용.
     override fun onResume() {
         super.onResume()
 
@@ -143,7 +144,6 @@ class ViewTopicDetailActivity : BaseActivity() {
                     mySelectedSide = mySide
 
                 }
-
 
 //                최신 득표 현황까지 받아서 mTopic에 저장됨.
 //                UI에 득표 현황 반영.

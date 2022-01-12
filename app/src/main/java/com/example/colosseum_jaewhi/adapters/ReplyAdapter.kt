@@ -81,6 +81,8 @@ class ReplyAdapter(
             ServerUtil.postRequestLikeOrDislike(mContext, data.id, true, object : ServerUtil.JsonResponseHandler{
                 override fun onResponse(jsonObj: JSONObject) {
 
+                    
+
                 }
             })
 
