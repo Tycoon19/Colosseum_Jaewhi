@@ -1,6 +1,7 @@
 package com.example.colosseum_jaewhi.adapters
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -49,6 +50,31 @@ class ReplyAdapter(
 
         likeCountBtn.text = "좋아요 ${data.likeCount}"
         dislikeCountBtn.text = "싫어요 ${data.dislikeCount}"
+
+        if (data.myLike){
+//            글씨 빨간색 + 배경도 빨간 테두리
+            likeCountBtn.setBackgroundResource(R.drawable.red_border_box)
+            likeCountBtn.setTextColor(Color.parseColor("#FF0000"))
+
+            dislikeCountBtn.setBackgroundResource(R.drawable.gray_border_box)
+            dislikeCountBtn.setTextColor(Color.parseColor("#A0A0A0"))
+        }
+        else if (data.myDislike){
+//            글씨 파란색 + 배경도 파란 테두리
+            likeCountBtn.setBackgroundResource(R.drawable.gray_border_box)
+            likeCountBtn.setTextColor(Color.parseColor("#A0A0A0"))
+
+            dislikeCountBtn.setBackgroundResource(R.drawable.blue_border_box)
+            dislikeCountBtn.setTextColor(Color.parseColor("#0000FF"))
+        }
+        else{
+//            좋아요 / 싫어요 찍지 않은 상태.
+            likeCountBtn.setBackgroundResource(R.drawable.gray_border_box)
+            likeCountBtn.setTextColor(Color.parseColor("#A0A0A0"))
+
+            dislikeCountBtn.setBackgroundResource(R.drawable.gray_border_box)
+            dislikeCountBtn.setTextColor(Color.parseColor("#A0A0A0"))
+        }
 
         likeCountBtn.setOnClickListener {
 //            좋아요 API 호출
