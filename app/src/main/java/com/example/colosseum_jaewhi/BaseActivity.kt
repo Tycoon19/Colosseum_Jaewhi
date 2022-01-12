@@ -19,7 +19,12 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setCustomActionBar()
+        // 액션바가 있는 화면만, 커스텀액션바 세팅 실행.
+        // 액션바 있나요. 있다면 let{...}실행해주세요.
+        supportActionBar?.let {
+            setCustomActionBar()
+        }
+
 
     }
 
