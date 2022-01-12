@@ -16,7 +16,7 @@ class MainActivity : BaseActivity() {
     lateinit var mTopicAdapter : TopicAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        super.onCreate(savedInstanceState) // super는 나한테 물려준 부모를 얘기한다. => BaseActivity의 oncreate()를 실행해달라!!
         setContentView(R.layout.activity_main)
         setupEvents()
         setValues()
