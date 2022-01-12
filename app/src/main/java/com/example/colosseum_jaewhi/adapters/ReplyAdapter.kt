@@ -7,10 +7,13 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.colosseum_jaewhi.R
 import com.example.colosseum_jaewhi.datas.Reply
 import com.example.colosseum_jaewhi.datas.Topic
+import com.example.colosseum_jaewhi.utils.ServerUtil
+import org.json.JSONObject
 
 class ReplyAdapter(
     val mContext : Context,
@@ -46,6 +49,25 @@ class ReplyAdapter(
 
         likeCountBtn.text = "좋아요 ${data.likeCount}"
         dislikeCountBtn.text = "싫어요 ${data.dislikeCount}"
+
+        likeCountBtn.setOnClickListener {
+//            좋아요 API 호출
+            ServerUtil.postRequestLikeOrDislike(mContext, data.id, true, object : ServerUtil.JsonResponseHandler{
+                override fun onResponse(jsonObj: JSONObject) {
+
+                }
+            })
+
+        }
+
+        dislikeCountBtn.setOnClickListener {
+//            싫어요 API 호출
+            ServerUtil.postRequestLikeOrDislike(mContext, data.id, false, object : ServerUtil.JsonResponseHandler{
+                override fun onResponse(jsonObj: JSONObject) {
+
+                }
+            })
+        }
 
         return row
 
