@@ -27,6 +27,7 @@
     </LinearLayout>
 
     <EditText
+        android:id="@+id/contentEdt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="해당 진영을 위한 의견을 달아주세요."
