@@ -9,6 +9,8 @@ class Reply {
 
     lateinit var selectedSide : Side
 
+    var writerNickname = ""
+
     companion object{
 
         fun getReplyFromJson(jsonObj : JSONObject) : Reply{
@@ -20,6 +22,8 @@ class Reply {
 
 //            중괄호 따서 대입해서 한 큐에 넣어주기.
             resultReply.selectedSide = Side.getSideFromJson(jsonObj.getJSONObject("selected_side"))
+
+            resultReply.writerNickname = jsonObj.getJSONObject("user").getString("nick_name")
 
             return resultReply
 
