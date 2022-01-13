@@ -8,6 +8,7 @@ import com.example.colosseum_jaewhi.adapters.TopicAdapter
 import com.example.colosseum_jaewhi.datas.Topic
 import com.example.colosseum_jaewhi.utils.ServerUtil
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.my_custom_action_bar.*
 import org.json.JSONObject
 
 class MainActivity : BaseActivity() {
@@ -45,6 +46,7 @@ class MainActivity : BaseActivity() {
 
 //        BaseActivity가 물려준 백버튼 숨기자.
         backBtn.visibility = View.GONE
+        alarmBellImg.visibility = View.VISIBLE
 
     }
 

@@ -11,6 +11,7 @@ abstract class BaseActivity : AppCompatActivity() {
     // 밑에서 자동완성해서 쓰지말고 여기서 lateinit var 로 선언해주자.
     lateinit var backBtn : ImageView
 
+
     val mContext = this
 
     abstract fun setupEvents()
@@ -20,7 +21,7 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         // 액션바가 있는 화면만, 커스텀액션바 세팅 실행.
-        // 액션바 있나요. 있다면 let{...}실행해주세요.
+        // 액션바 있나요? 있다면 let{...}실행해주세요.
         supportActionBar?.let {
             setCustomActionBar()
         }

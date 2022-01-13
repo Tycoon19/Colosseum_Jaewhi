@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "881374102447",
+    "project_id": "colosseum-jaewhi",
+    "storage_bucket": "colosseum-jaewhi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881374102447:android:6914058b3b1d4499ab655a",
+        "android_client_info": {
+          "package_name": "com.example.colosseum_jaewhi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "881374102447-gja8cbq0sgn2nsuaradkejen5nn94qjp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4j8xXxtMx-Ae2NgxDboA-LUO-2wDme-s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "881374102447-gja8cbq0sgn2nsuaradkejen5nn94qjp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
